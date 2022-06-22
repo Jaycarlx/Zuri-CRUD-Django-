@@ -1,5 +1,9 @@
+from django.shortcuts import render
+from audioop import reverse
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView 
+from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Post
@@ -11,7 +15,7 @@ class PostListView(ListView):
 
 class PostCreateView(CreateView):
     model = Post
-    field = "__all__"
+    fields = "__all__"
     success_url: reverse_lazy('blog:all')
     template_name: "blog/post_form.html"
 
@@ -21,7 +25,7 @@ class PostDetailView(DetailView):
 
 class PostUpdateView(UpdateView):
     model = Post
-    field = "__all__"
+    fields = "__all__"
     success_url: reverse_lazy('blog:all')
     template_name: "blog/post_form.html"
 
